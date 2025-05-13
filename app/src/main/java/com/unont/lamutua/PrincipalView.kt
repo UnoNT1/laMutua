@@ -55,7 +55,7 @@ fun PrincipalView(){
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(if (isSmallScreen) 240.dp else 280.dp)
+                .height(if (isSmallScreen) 240.dp else 280.dp)//condicional si es pequena la pantalla
                 .background(BluePrimario)
         ) {
             Column(
@@ -90,7 +90,7 @@ fun PrincipalView(){
                         .fillMaxWidth()
                         .clip(RoundedCornerShape(10.dp)),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = BluePrimario,
+                        containerColor = BluePrimario,// color que cree que es el q vamos a usar
                         contentColor = Color.White
                     )
                 ) {
