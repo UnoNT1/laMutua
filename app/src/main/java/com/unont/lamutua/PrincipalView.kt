@@ -34,6 +34,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -42,8 +43,9 @@ import androidx.compose.ui.unit.sp
 import com.unont.lamutua.ui.theme.BluePrimario
 
 @Composable
-
 fun PrincipalView(){
+    val configuration = LocalConfiguration.current
+    val isSmallScreen = configuration.screenHeightDp < 700 // Umbral para considerar pantalla pequeña (ajusta según necesites)
 
     Column(
         modifier = Modifier
@@ -53,7 +55,7 @@ fun PrincipalView(){
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(280.dp)
+                .height(if (isSmallScreen) 240.dp else 280.dp)
                 .background(BluePrimario)
         ) {
             Column(
@@ -65,7 +67,7 @@ fun PrincipalView(){
                     painter =  painterResource(id = R.drawable.icono_principal_mejorado2),
                     contentDescription = "Salud",
                     contentScale = ContentScale.Fit,
-                    modifier = Modifier.padding(15.dp)
+                    modifier = Modifier.padding(20.dp)
                 )
             }
         }
@@ -83,8 +85,8 @@ fun PrincipalView(){
                 Button(
                     onClick = {},
                     modifier = Modifier
-                        .padding(16.dp)
-                        .height(200.dp)
+                        .padding(if (isSmallScreen) 2.dp else 16.dp)
+                        .height(if (isSmallScreen) 120.dp else 180.dp) // Altura más pequeña en pantallas chicas
                         .fillMaxWidth()
                         .clip(RoundedCornerShape(10.dp)),
                     colors = ButtonDefaults.buttonColors(
@@ -128,7 +130,7 @@ fun PrincipalView(){
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 10.dp, end = 10.dp, bottom = 15.dp),
-                verticalArrangement = Arrangement.spacedBy(15.dp)
+                verticalArrangement = Arrangement.spacedBy(if (isSmallScreen) 1.dp else 15.dp)
             ) {
                 Button(
                     onClick = {},
@@ -155,7 +157,7 @@ fun PrincipalView(){
                         )
                     }
                 }
-                HorizontalDivider()
+                HorizontalDivider(color = Color.Black, thickness = 2.dp)
                 Row(
                     verticalAlignment = CenterVertically,
                     horizontalArrangement = Arrangement.Start
@@ -184,7 +186,8 @@ fun PrincipalView(){
                             )
                             Text(
                                 text = "Poliza",
-                                textAlign = TextAlign.Start
+                                textAlign = TextAlign.Start,
+                                color = Color.Black
                             )
                         }
                     }
@@ -213,7 +216,9 @@ fun PrincipalView(){
                                 contentDescription = "Comment",
                                 tint = Color.Black
                             )
-                            Text(text = "Contactar asesor")
+                            Text(text = "Contactar asesor",
+                                color = Color.Black
+                            )
                         }
                     }
                 }
@@ -241,7 +246,9 @@ fun PrincipalView(){
                                 contentDescription = "Question",
                                 tint = Color.Black
                             )
-                            Text(text = "Preguntas frecuentes")
+                            Text(text = "Preguntas frecuentes",
+                                color = Color.Black
+                            )
                         }
                     }
                 }
