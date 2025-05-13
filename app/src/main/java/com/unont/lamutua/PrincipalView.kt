@@ -39,6 +39,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.unont.lamutua.ui.theme.BluePrimario
 
 @Composable
 
@@ -53,7 +54,7 @@ fun PrincipalView(){
             modifier = Modifier
                 .fillMaxWidth()
                 .height(280.dp)
-                .background(MaterialTheme.colorScheme.primary)
+                .background(BluePrimario)
         ) {
             Column(
                 modifier = Modifier.fillMaxSize(),
@@ -61,7 +62,7 @@ fun PrincipalView(){
                 horizontalAlignment = CenterHorizontally
             ) {
                 Image(
-                    painter =  painterResource(id = R.drawable.icono_principal),
+                    painter =  painterResource(id = R.drawable.icono_principal_mejorado2),
                     contentDescription = "Salud",
                     contentScale = ContentScale.Fit, // O ContentScale.Crop, ContentScale.Inside, etc.
                 )
@@ -86,7 +87,7 @@ fun PrincipalView(){
                         .fillMaxWidth()
                         .clip(RoundedCornerShape(10.dp)),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = MaterialTheme.colorScheme.primary,
+                        containerColor = BluePrimario,
                         contentColor = Color.White
                     )
                 ) {
