@@ -71,7 +71,6 @@ fun PrincipalView(){
                 )
             }
         }
-
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -79,7 +78,7 @@ fun PrincipalView(){
             verticalArrangement = Arrangement.SpaceBetween // Esto ahora distribuirá el espacio entre el botón superior, el Spacer y la columna inferior
         ) {
             Column(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth().padding(horizontal = if (isSmallScreen) 20.dp else 0.dp),
                 horizontalAlignment = CenterHorizontally
             ) {
                 Button(
@@ -130,7 +129,7 @@ fun PrincipalView(){
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 10.dp, end = 10.dp, bottom = 15.dp),
-                verticalArrangement = Arrangement.spacedBy(if (isSmallScreen) 1.dp else 15.dp)
+                verticalArrangement = Arrangement.spacedBy(if (isSmallScreen) 1.dp else 20.dp)
             ) {
                 Button(
                     onClick = {},
