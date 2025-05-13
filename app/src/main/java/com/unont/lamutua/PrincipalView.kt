@@ -64,7 +64,8 @@ fun PrincipalView(){
                 Image(
                     painter =  painterResource(id = R.drawable.icono_principal_mejorado2),
                     contentDescription = "Salud",
-                    contentScale = ContentScale.Fit, // O ContentScale.Crop, ContentScale.Inside, etc.
+                    contentScale = ContentScale.Fit,
+                    modifier = Modifier.padding(15.dp)
                 )
             }
         }
