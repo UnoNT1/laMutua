@@ -43,7 +43,7 @@ import androidx.compose.ui.unit.sp
 import com.unont.lamutua.ui.theme.BluePrimario
 
 @Composable
-fun PrincipalView(){
+fun PrincipalView(onNavigateToView: () -> Unit){
     val configuration = LocalConfiguration.current
     val isSmallScreen = configuration.screenHeightDp < 700 // Umbral para considerar pantalla pequeña (ajusta según necesites)
 
@@ -82,7 +82,7 @@ fun PrincipalView(){
                 horizontalAlignment = CenterHorizontally
             ) {
                 Button(
-                    onClick = {},
+                    onClick = {onNavigateToView},
                     modifier = Modifier
                         .padding(if (isSmallScreen) 2.dp else 16.dp)
                         .height(if (isSmallScreen) 120.dp else 180.dp) // Altura más pequeña en pantallas chicas
