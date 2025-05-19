@@ -31,11 +31,11 @@ fun HeaderComponent(navController: NavController, titulo: String){
     Column() {
         Row(
             modifier = Modifier.fillMaxWidth().background(BluePrimario).height(110.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Center
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Button(
-                onClick = { navController.navigateUp() }, modifier = Modifier.size(100.dp, 50.dp),
+                onClick = { navController.navigateUp() }, modifier = Modifier.size(100.dp, 50.dp)
+                    .padding(top = 10.dp),
                 colors = ButtonDefaults.buttonColors(
                     backgroundColor = Color.Transparent,
                     contentColor = Color.White
@@ -55,7 +55,7 @@ fun HeaderComponent(navController: NavController, titulo: String){
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier
                     .weight(1f) // Ocupa el espacio restante
-                    .padding(start = 20.dp)
+                    .padding(start = 20.dp, top = 10.dp)
                     .fillMaxWidth(),
                 color = Color.White
             )

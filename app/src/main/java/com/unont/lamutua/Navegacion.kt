@@ -59,7 +59,8 @@ fun Navegacion() {
                 onNavigateToView = {
                     navController.navigate("selecAsistencias")
                 },
-                onNavigateAsesor = { navController.navigate("contactarAsesor") }
+                onNavigateAsesor = { navController.navigate("contactarAsesor") },
+                navController = navController // Pasa el navController a PrincipalView
             )
         }
         composable("selecAsistencias") {

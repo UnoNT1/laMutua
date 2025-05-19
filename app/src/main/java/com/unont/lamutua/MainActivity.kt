@@ -30,7 +30,7 @@ class MainActivity : ComponentActivity() {
             )
             MaterialTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    Navegacion()
+                   Navegacion()
                 }
             }
         }
