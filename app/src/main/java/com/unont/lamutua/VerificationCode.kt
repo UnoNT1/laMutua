@@ -25,8 +25,7 @@ import kotlin.random.Random
 @Composable
 fun VerificationCodeScreen(
     nombre: String,
-    empresa: String,
-    telefono: String, // Recibimos el teléfono
+    empresa: String, // Recibimos el teléfono
     email: String, // Recibimos el correo electrónico
     codigoGenerado: String,
     onVerificationSuccess: () -> Unit,
@@ -60,7 +59,7 @@ fun VerificationCodeScreen(
         Button(
             onClick = {
                 if (codigoIngresado == nuevoCodigo) {
-                    println("Usuario registrado: Nombre=$nombre, Empresa=$empresa, Teléfono=$telefono")
+                    println("Usuario registrado: Nombre=$nombre, Email = $email")
                     onVerificationSuccess() // Navegar a la siguiente pantalla
                 } else {
                     errorMessage = "Código incorrecto. Inténtalo de nuevo."

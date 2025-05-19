@@ -36,14 +36,19 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.unont.lamutua.ui.theme.BluePrimario
+import com.unont.lamutua.ui.theme.poppinsFontFamily
 
 @Composable
-fun PrincipalView(onNavigateToView: () -> Unit){
+fun PrincipalView(
+    onNavigateToView: () -> Unit,
+    onNavigateAsesor : () -> Unit
+){
     val configuration = LocalConfiguration.current
     val isSmallScreen = configuration.screenHeightDp < 700 // Umbral para considerar pantalla pequeña (ajusta según necesites)
 
@@ -82,7 +87,7 @@ fun PrincipalView(onNavigateToView: () -> Unit){
                 horizontalAlignment = CenterHorizontally
             ) {
                 Button(
-                    onClick = {onNavigateToView},
+                    onClick = onNavigateToView,
                     modifier = Modifier
                         .padding(if (isSmallScreen) 2.dp else 16.dp)
                         .height(if (isSmallScreen) 120.dp else 180.dp) // Altura más pequeña en pantallas chicas
@@ -106,6 +111,7 @@ fun PrincipalView(onNavigateToView: () -> Unit){
                         Column(modifier = Modifier.padding(start = 20.dp)) {
                             Text(
                                 text = "Solicitar",
+                                style = TextStyle(fontFamily = poppinsFontFamily, fontWeight = FontWeight.Normal),
                                 fontSize = 23.sp,
                                 fontWeight = FontWeight.Bold,
                                 textAlign = TextAlign.Start,
@@ -113,6 +119,7 @@ fun PrincipalView(onNavigateToView: () -> Unit){
                             )
                             Text(
                                 text = "asistencias",
+                                style = TextStyle(fontFamily = poppinsFontFamily, fontWeight = FontWeight.Normal),
                                 fontSize = 20.sp,
                                 fontWeight = FontWeight.Bold,
                                 textAlign = TextAlign.Start,
@@ -145,6 +152,7 @@ fun PrincipalView(onNavigateToView: () -> Unit){
                     ) {
                         Text(
                             text = "Mis Asistencias",
+                            style = TextStyle(fontFamily = poppinsFontFamily, fontWeight = FontWeight.Normal),
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Bold,
                             color = Color.Black
@@ -185,6 +193,7 @@ fun PrincipalView(onNavigateToView: () -> Unit){
                             )
                             Text(
                                 text = "Poliza",
+                                style = TextStyle(fontFamily = poppinsFontFamily, fontWeight = FontWeight.Normal),
                                 textAlign = TextAlign.Start,
                                 color = Color.Black
                             )
@@ -194,7 +203,7 @@ fun PrincipalView(onNavigateToView: () -> Unit){
                 HorizontalDivider()
                 Row(verticalAlignment = CenterVertically) {
                     Button(
-                        onClick = {},
+                        onClick = onNavigateAsesor,
                         colors = ButtonDefaults.buttonColors(
                            containerColor = Color.Transparent
                         ),
@@ -216,6 +225,7 @@ fun PrincipalView(onNavigateToView: () -> Unit){
                                 tint = Color.Black
                             )
                             Text(text = "Contactar asesor",
+                                style = TextStyle(fontFamily = poppinsFontFamily, fontWeight = FontWeight.Normal),
                                 color = Color.Black
                             )
                         }
@@ -246,6 +256,7 @@ fun PrincipalView(onNavigateToView: () -> Unit){
                                 tint = Color.Black
                             )
                             Text(text = "Preguntas frecuentes",
+                                style = TextStyle(fontFamily = poppinsFontFamily, fontWeight = FontWeight.Normal),
                                 color = Color.Black
                             )
                         }
