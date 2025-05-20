@@ -32,6 +32,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -51,6 +52,8 @@ import java.net.URLEncoder
 @Composable
 fun SelecAsistenciaView(navController: NavController) {
     val context = LocalContext.current
+    val configuration = LocalConfiguration.current
+    val isSmallScreen = configuration.screenHeightDp < 700 // Umbral para considerar pantalla pequeña (ajusta según necesites)
     var mostrarDialogoAsistenciaObligatoria by remember { mutableStateOf(false) } //para mostrar la alerta si no hay seleccion
     val listaDeElementos = listOf(
         "Accidentes",
@@ -93,14 +96,16 @@ fun SelecAsistenciaView(navController: NavController) {
                 }
             )
         }
-
-        Spacer(modifier = Modifier.height(24.dp))
-
+        if (isSmallScreen) {
+            //no hace nada
+        }else {
+            Spacer(modifier = Modifier.height(24.dp))
+        }
         Text(
             text = "Puede solicitar su asistencia a través de:",
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 16.dp, bottom = 8.dp),
+                .padding(start = 16.dp, bottom = if (isSmallScreen) 0.dp else 8.dp),
             textAlign = TextAlign.Start,
             style = TextStyle(fontFamily = poppinsFontFamily, fontWeight = FontWeight.Normal)
         )
@@ -109,7 +114,7 @@ fun SelecAsistenciaView(navController: NavController) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp),
+                .padding(if (isSmallScreen) 0.dp else 16.dp),
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
             // Botón de WhatsApp
@@ -141,9 +146,9 @@ fun SelecAsistenciaView(navController: NavController) {
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Icon(
-                        imageVector = Icons.Default.Message,
+                        painter = painterResource(id = com.unont.lamutua.R.drawable.whatsapp_icono),
                         contentDescription = "WhatsApp",
-                        tint = Color.Green,
+                        tint = Color.Unspecified,
                         modifier = Modifier.size(40.dp)
 
                     )

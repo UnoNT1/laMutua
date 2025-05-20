@@ -72,5 +72,6 @@ dependencies {
     implementation("androidx.compose.material:material-icons-core:1.7.8")
     implementation("androidx.compose.material:material-icons-extended:1.5.4") // Reemplaza con la versión más reciente
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.33.2-alpha") // o la version mas reciente
+    implementation("androidx.compose.material:material-icons-extended")
     implementation("androidx.compose.material:material-icons-extended:1.6.4") // O la versión más reciente
 }

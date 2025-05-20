@@ -63,6 +63,9 @@ fun Navegacion() {
                 navController = navController // Pasa el navController a PrincipalView
             )
         }
+        composable("sobreNosotros") {
+            SobreNosotrosView(navController) // Llama a tu vista de "Sobre Nosotros"
+        }
         composable("selecAsistencias") {
                 SelecAsistenciaView(navController)
         }

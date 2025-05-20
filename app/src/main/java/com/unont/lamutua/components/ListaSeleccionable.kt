@@ -1,5 +1,6 @@
 package com.unont.lamutua.components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -20,6 +21,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 
@@ -33,10 +35,17 @@ fun ListaSeleccionable(
 
     Column {
         listaDeElementos.forEachIndexed { index, item ->
+            // Determina si el item actual está seleccionado
+            val isSelected = opcionSeleccionada == item
+
             Row(
                 modifier = Modifier
                     .size(width = 300.dp, height = 50.dp)
                     .padding(vertical = 8.dp, horizontal = 16.dp)
+                    .background(
+                        // Aplica el color de fondo condicionalmente
+                        color = if (isSelected) Color.Gray.copy(alpha = 0.3f) else Color.Transparent // Color de resaltado
+                    )
                     .clickable {
                         opcionSeleccionada = item // Actualiza el estado al hacer clic
                         onOpcionSeleccionada(item) // Llama al callback con la opción seleccionada
